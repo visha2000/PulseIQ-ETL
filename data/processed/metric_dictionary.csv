@@ -1,0 +1,6 @@
+metric_name,description,formula,source_table,unit,aggregation
+Total Gross Payroll,Total gross payroll before deductions,SUM(gross_pay),fact_payroll,Currency,Monthly
+Total Net Payroll,Total employee pay after deductions,SUM(net_pay),fact_payroll,Currency,Monthly
+Total Employer Cost,Total payroll cost incurred by the employer,SUM(employer_cost),fact_payroll,Currency,Monthly
+Attendance Coverage Rate,Scheduled days covered by present days and paid leave,(SUM(present_days) + SUM(paid_leave_days)) / SUM(scheduled_days) * 100,fact_attendance_monthly,Percentage,Monthly
+Payroll Budget Variance,Difference between actual payroll cost and budget,Actual Payroll Cost - Budget Payroll Cost,fact_payroll + budget_payroll_dept_month,Currency,Department and Month

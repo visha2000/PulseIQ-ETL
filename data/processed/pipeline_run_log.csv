@@ -1,0 +1,37 @@
+start_time,end_time,status,message
+2026-10-14T08:01:31,2026-10-14T08:01:33,SUCCESS,ETL pipeline completed successfully
+2026-10-14T12:06:02,2026-10-14T12:06:12,SUCCESS,ETL pipeline completed successfully
+2026-10-14T12:08:44,2026-10-14T12:08:58,SUCCESS,ETL pipeline completed successfully
+2026-10-14T13:23:08,2026-10-14T13:23:15,SUCCESS,ETL pipeline completed successfully
+2026-10-14T13:23:32,2026-10-14T13:23:39,SUCCESS,ETL pipeline completed successfully
+2026-10-14T14:18:08,2026-10-14T14:18:15,SUCCESS,ETL pipeline completed successfully
+2026-10-14T17:36:19,2026-10-14T17:36:29,SUCCESS,ETL pipeline completed successfully
+2026-10-14T17:46:23,2026-10-14T17:46:32,SUCCESS,ETL pipeline completed successfully
+2026-10-14T17:48:36,2026-10-14T17:48:46,SUCCESS,ETL pipeline completed successfully
+2026-10-14T17:55:50,2026-10-14T17:56:00,SUCCESS,ETL pipeline completed successfully
+2026-10-14T17:57:37,2026-10-14T17:57:46,SUCCESS,ETL pipeline completed successfully
+2026-10-14T18:05:00,2026-10-14T18:05:02,FAILED,"(psycopg2.errors.NotNullViolation) null value in column ""valid_from"" of relation ""dim_employee"" violates not-null constraint
+DETAIL:  Failing row contains (100000, EMP-0001, Ganesh Murthy, Male, null, null, null, Resigned, Permanent, D01, R002, Associate Software Engineer, 1, EMP-0051, Pune, Hybrid, B.E. Computer Science, null, null, N, Joining).
+
+[SQL: 
+                    INSERT INTO ""dim_employee"" (""employee_key"", ""employee_id"", ""full_name"", ""gender"", ""date_of_birth"", ""hire_date"", ""exit_date"", ""employment_status"", ""employment_type"", ""department_id"", ""role_id"", ""role_title"", ""job_level"", ""manager_id"", ""work_location"", ""work_mode"", ""highest_education"", ""valid_from"", ""valid_to"", ""is_current"", ""change_reason"")
+                    SELECT ""employee_key"", ""employee_id"", ""full_name"", ""gender"", ""date_of_birth"", ""hire_date"", ""exit_date"", ""employment_status"", ""employment_type"", ""department_id"", ""role_id"", ""role_title"", ""job_level"", ""manager_id"", ""work_location"", ""work_mode"", ""highest_education"", ""valid_from"", ""valid_to"", ""is_current"", ""change_reason""
+                    FROM ""stg_dim_employee""
+                    ON CONFLICT (employee_key) DO UPDATE SET ""employee_id"" = EXCLUDED.""employee_id"", ""full_name"" = EXCLUDED.""full_name"", ""gender"" = EXCLUDED.""gender"", ""date_of_birth"" = EXCLUDED.""date_of_birth"", ""hire_date"" = EXCLUDED.""hire_date"", ""exit_date"" = EXCLUDED.""exit_date"", ""employment_status"" = EXCLUDED.""employment_status"", ""employment_type"" = EXCLUDED.""employment_type"", ""department_id"" = EXCLUDED.""department_id"", ""role_id"" = EXCLUDED.""role_id"", ""role_title"" = EXCLUDED.""role_title"", ""job_level"" = EXCLUDED.""job_level"", ""manager_id"" = EXCLUDED.""manager_id"", ""work_location"" = EXCLUDED.""work_location"", ""work_mode"" = EXCLUDED.""work_mode"", ""highest_education"" = EXCLUDED.""highest_education"", ""valid_from"" = EXCLUDED.""valid_from"", ""valid_to"" = EXCLUDED.""valid_to"", ""is_current"" = EXCLUDED.""is_current"", ""change_reason"" = EXCLUDED.""change_reason""
+                ]
+(Background on this error at: https://sqlalche.me/e/21/gkpj)"
+2026-10-14T18:08:31,2026-10-14T18:08:33,FAILED,"(psycopg2.errors.NotNullViolation) null value in column ""valid_from"" of relation ""dim_employee"" violates not-null constraint
+DETAIL:  Failing row contains (100000, EMP-0001, Ganesh Murthy, Male, null, null, null, Resigned, Permanent, D01, R002, Associate Software Engineer, 1, EMP-0051, Pune, Hybrid, B.E. Computer Science, null, null, N, Joining).
+
+[SQL: 
+                    INSERT INTO ""dim_employee"" (""employee_key"", ""employee_id"", ""full_name"", ""gender"", ""date_of_birth"", ""hire_date"", ""exit_date"", ""employment_status"", ""employment_type"", ""department_id"", ""role_id"", ""role_title"", ""job_level"", ""manager_id"", ""work_location"", ""work_mode"", ""highest_education"", ""valid_from"", ""valid_to"", ""is_current"", ""change_reason"")
+                    SELECT ""employee_key"", ""employee_id"", ""full_name"", ""gender"", ""date_of_birth"", ""hire_date"", ""exit_date"", ""employment_status"", ""employment_type"", ""department_id"", ""role_id"", ""role_title"", ""job_level"", ""manager_id"", ""work_location"", ""work_mode"", ""highest_education"", ""valid_from"", ""valid_to"", ""is_current"", ""change_reason""
+                    FROM ""stg_dim_employee""
+                    ON CONFLICT (employee_key) DO UPDATE SET ""employee_id"" = EXCLUDED.""employee_id"", ""full_name"" = EXCLUDED.""full_name"", ""gender"" = EXCLUDED.""gender"", ""date_of_birth"" = EXCLUDED.""date_of_birth"", ""hire_date"" = EXCLUDED.""hire_date"", ""exit_date"" = EXCLUDED.""exit_date"", ""employment_status"" = EXCLUDED.""employment_status"", ""employment_type"" = EXCLUDED.""employment_type"", ""department_id"" = EXCLUDED.""department_id"", ""role_id"" = EXCLUDED.""role_id"", ""role_title"" = EXCLUDED.""role_title"", ""job_level"" = EXCLUDED.""job_level"", ""manager_id"" = EXCLUDED.""manager_id"", ""work_location"" = EXCLUDED.""work_location"", ""work_mode"" = EXCLUDED.""work_mode"", ""highest_education"" = EXCLUDED.""highest_education"", ""valid_from"" = EXCLUDED.""valid_from"", ""valid_to"" = EXCLUDED.""valid_to"", ""is_current"" = EXCLUDED.""is_current"", ""change_reason"" = EXCLUDED.""change_reason""
+                ]
+(Background on this error at: https://sqlalche.me/e/21/gkpj)"
+2026-10-14T18:18:51,2026-10-14T18:19:01,SUCCESS,ETL pipeline completed successfully
+2026-10-15T11:58:55,2026-10-15T11:59:06,SUCCESS,ETL pipeline completed successfully
+2026-10-15T12:01:35,2026-10-15T12:01:44,SUCCESS,ETL pipeline completed successfully
+2026-10-15T12:34:47,2026-10-15T12:34:57,SUCCESS,ETL pipeline completed successfully
+2026-10-15T12:36:15,2026-10-15T12:36:25,SUCCESS,ETL pipeline completed successfully

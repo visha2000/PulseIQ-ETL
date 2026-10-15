@@ -1,0 +1,4 @@
+table_name,validation_rule,status
+fact_payroll.csv,No Negative Salaries,PASS
+dim_employee.csv,Valid Employee Dates,PASS
+dim_employee.csv,Unique Employee Keys,PASS

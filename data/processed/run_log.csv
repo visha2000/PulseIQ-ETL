@@ -1,0 +1,6 @@
+run_start_time,table_name,rows_in,rows_out,rejected_rows,status
+2026-10-13 21:34:57,dim_employee.csv,1606,1606,0,SUCCESS
+2026-10-13 21:34:57,fact_payroll.csv,7344,7344,0,SUCCESS
+2026-10-13 21:34:57,fact_attendance_monthly.csv,7343,7343,0,SUCCESS
+2026-10-13 21:34:57,fact_leave.csv,3441,3439,2,SUCCESS_WITH_REJECTIONS
+2026-10-13 21:34:57,budget_payroll_dept_month.csv,198,198,0,SUCCESS

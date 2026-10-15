@@ -1,0 +1,3 @@
+table_name,row_number,reason
+fact_leave.csv,2057,end_date is before start_date
+fact_leave.csv,2219,end_date is before start_date
