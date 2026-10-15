@@ -1,0 +1,25 @@
+
+services:
+  etl:
+    build: .
+    volumes:
+      - ./data:/app/data
+    command: python -m src.main
+    depends_on:
+      - postgres
+
+  postgres:
+    image: postgres:16
+    container_name: pulseiq-postgres
+    environment:
+      POSTGRES_DB: pulseiq_warehouse
+      POSTGRES_USER: pulseiq_user
+      POSTGRES_PASSWORD: pulseiq_password
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+volumes:
+  postgres_data:
+

@@ -1,0 +1,8 @@
+pandas
+numpy
+pandera
+python-dotenv
+sqlalchemy
+pymysql
+openpyxl
+psycopg2-binary
