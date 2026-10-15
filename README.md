@@ -75,26 +75,86 @@ The pipeline follows these steps:
 
 ### Run the ETL Pipeline
 
-Prerequisites:
+## How to Run the Project
 
-- Python 3.11 or a compatible version
+### Prerequisites
+
+Install the following tools before running the project:
+
+- Python 3.11+
 - Docker Desktop
-- Docker Compose
+- Git
 
-Clone the repository:
+### 1. Clone the Repository
 
 ```bash
 git clone https://github.com/visha2000/PulseIQ-ETL.git
 cd PulseIQ-ETL
 ```
 
-Build and run the ETL pipeline:
+### 2. Build the Docker Image
 
 ```bash
-docker compose run --build --rm etl
+docker compose build
 ```
 
-The command runs the ETL service and removes the temporary container when the process finishes.
+### 3. Run the ETL Pipeline
+
+```bash
+docker compose run --rm etl
+```
+
+This command runs the ETL pipeline, which extracts, validates, transforms, and loads data according to the project configuration.
+
+### 4. Check the Processed Data
+
+In PowerShell:
+
+```powershell
+Get-ChildItem .\data\processed
+```
+
+Check the pipeline execution log:
+
+```powershell
+Get-Content .\data\processed\pipeline_run_log.csv
+```
+
+### 5. Run Unit Tests
+
+```bash
+python -m unittest discover -s tests -v
+```
+
+### 6. Validate the Analytics Warehouse
+
+Run this command if the PostgreSQL service is configured and running:
+
+```bash
+docker compose run --rm etl python -m src.validate_analytics
+```
+
+### 7. View the Warehouse Tables
+
+Connect to the PostgreSQL container:
+
+```bash
+docker compose exec postgres psql -U postgres -d postgres
+```
+
+Inside the PostgreSQL prompt, list the tables:
+
+```sql
+\dt
+```
+
+Exit PostgreSQL:
+
+```sql
+\q
+```
+
+**Note:** The PostgreSQL service name, username, database name, and container configuration must match `compose.yaml`. Update the connection command if your configuration uses different values.
 
 ## Data Quality and Validation
 
