@@ -1,0 +1,9 @@
+FROM apache/superset:latest
+
+USER root
+
+RUN /usr/local/bin/pip install --no-cache-dir psycopg2-binary
+
+ENV PYTHONPATH="/usr/local/lib/python3.10/site-packages"
+
+USER superset
